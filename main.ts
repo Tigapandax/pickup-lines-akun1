@@ -8,6 +8,10 @@ if (lines.length !== 1) {
   process.exit(1);
 }
 const line = lines[0].trim();
+if (raw.includes("\r")) {
+  console.error("one-line.txt must not contain carriage returns.");
+  process.exit(1);
+}
 
 console.log(line);
 if (!/[.!?]$/.test(line)) {
